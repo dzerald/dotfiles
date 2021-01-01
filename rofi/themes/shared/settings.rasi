@@ -1,0 +1,10 @@
+/**
+ * Allows to change the settings of every menu simply by editing this file
+ */
+@import "1920x1080.rasi"
+
+#window {
+  width: 70%;
+  height: 100%;
+}
+
