@@ -6,6 +6,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'kevinhwang91/rnvimr',
+Plug 'kovetskiy/sxhkd-vim'
 Plug 'tpope/vim-commentary'
 Plug 'ap/vim-css-color'
 Plug 'liuchengxu/vim-which-key'

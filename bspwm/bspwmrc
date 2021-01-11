@@ -1,19 +1,23 @@
 #! /bin/sh
 
+killall -q polybar
+
 # Autostart
 sxhkd &
 picom --config "$HOME/.config/picom/picom.conf" &
 feh --no-fehbg --bg-fill "$HOME/.config/bspwm/wallpaper3.png"
 polybar -r mybar &
+polybar -r bottom &
 
-# ./.config/bspwm/panel.sh &
 
 # Monitor
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d 1 2 3 4 5 6
 
 # Settings
 bspc config border width 2
 bspc config window_gap   10
 bspc config top_padding  30
+bspc config gapless_monocle      true
+
 
 bspc config focused_border_color "#F27A81"

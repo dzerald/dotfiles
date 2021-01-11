@@ -110,7 +110,38 @@ super + Return
 	kitty
 
 # Browser
-super + alt + b
+super + alt + b 
   firefox
+
+# Launcher
+super + alt + f
+  $HOME/.config/rofi/bin/launcher.sh
+
+# Network menu
+super + alt + n
+  python ~/.config/rofi/scripts/networkmenu.py
+
+# Powermenu
+super + alt + m
+  $HOME/.config/rofi/bin/powermenu.sh
+
+# Screenshot
+Print + shift
+  flameshot gui
+
+Print
+	flameshot full -c -p ~/Pictures
+
+#################
+# Function keys #
+#################
+
+# Volume
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
+
+# Mute volume
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 
