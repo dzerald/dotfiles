@@ -1,0 +1,118 @@
+{
+    "height": 24,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": [],
+    "modules-right": ["network", "custom/vpn", "battery", "pulseaudio", "custom/updates", "tray", "clock"],
+    
+    // Modules configuration
+    
+    "sway/workspaces": {
+      "disable-scroll": false,
+      "all-outputs": true,
+      "format": "{icon}",
+      "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": []
+      },
+      "format-icons": {
+      "1": "󰅬",
+      "2": "󰖟",
+      "3": "󰇮",
+      "4": "󰭹",
+      "5": "󰊗",
+      "6": "󰝚",
+      "7": "󰆼",
+      "focused": "",
+      "urgent": "",
+      "default": ""
+       },
+      /* "icon-size": 15 */
+     },
+    "tray": {
+        /* "icon-size": 21, */
+        "spacing": 10
+    },
+    "clock": {
+        "format": "󰅐{:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "󰍛{usage}%",
+        "interval": 2,
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [""]
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "󰃚"]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon}{capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "{capacity}%",
+        "format-alt": "{icon}{time}",
+        "format-icons": ["󰂃","󰁺","󰁻","󰁼","󰁽","󰁾", "󰁿", "󰂀", "󰂁", "󰂂 ", "󰁹 "]
+    },
+    "network": {
+        "format-wifi": "󰖩 {essid}",
+        "format-disconnected": "󰖪",
+        "format-alt": "{ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰸈  {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "portable": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+    },
+    "custom/powermenu": {
+        "format": "󰐥",
+        "on-click": ""
+    },
+    "custom/updates": {
+        "exec": "checkupdates | wc -l",
+        "format": "󰏗 {}",
+        "on-click": "test",
+        "interval": 5
+    },
+    "custom/vpn": {
+        "exec": "$HOME/.config/waybar/scripts/vpn.sh",
+        "format": "{}",
+        "interval": 5
+    }
+}

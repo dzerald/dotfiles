@@ -1,0 +1,26 @@
+hide_scroll=true
+show=drun
+# height=85
+columns=1
+lines=10
+width=350
+term=foot
+location=center
+dynamic_lines=true
+allow_markup=true
+always_parse_args=true
+show_all=true
+print_command=true
+layer=overlay
+insensitive=true
+prompt=
+image_size=30
+content_align=center
+display_generic=true
+line_wrap=off
+valigh=center
+haligh=center
+orientation=vertical
+allow_images=true
+
+
