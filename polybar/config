@@ -1,12 +1,3 @@
-; To learn more about how to configure Polybar
-; go to https://github.com/jaagr/polybar
-;
-; https://github.com/jaagr/polybar/wiki/
-; https://github.com/jaagr/polybar/wiki/Configuration
-; https://github.com/jaagr/polybar/wiki/Formatting
-;
-;=====================================================
-
 [global/wm]
 margin-top = 0
 margin-bottom = 0
@@ -17,21 +8,29 @@ throttle-output-for = 10
 screenchange-reload = true
 
 [colors]
-background = #09012A
-background2 = #00000000
-background-alt = #1D2A9C
-background-alt1 = #aa27292E
-foreground =  #F3A1A5
-foreground-alt = #8CBDDB
-foreground-alt1 = #555
-; =======================
+background = #323F4E
+background-alt = #3D4C5F
+foreground =  #F8F8F2
 
-[bar/mybar]
-ywidth = 100%
-height = 28
-fixed-center = true
+foreground-alt = ${xrdb:color11}
+foreground-alt-1 = ${xrdb:color10}
+
+shade-1 = #506176
+shade-2 = #4B5B70
+shade-3 = #46566A
+shade-4 = #425164
+shade-5 = #3D4C5F
+
+########
+# Bars #
+########
+
+[bar/top]
+width = 100%
+height = 30
 bottom = false
 line-size = 3
+monitor = ${env:MONITOR:}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -39,89 +38,88 @@ foreground = ${colors.foreground}
 wm-restack = bspwm
 override-redirect = true
 
-enable-ipc = true
+enable-ipc = false
 
-border-size = 0
-border-color = #00000000
+#border-top-size = 3
+#border-bottom-size = 3
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
 
-padding-left = 1
-padding-right = 1
+padding = 0
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 0
 
-;https://github.com/jaagr/polybar/wiki/Fonts
-; font-0 = "Hack:size=10;3"
-font-0 = "BreezeSans:size=12:style=Bold Condensed;3"
-font-1 = "Font Awesome 5 Free Solid:pixelsize=10;2"
-font-2 = "Material Design Icons Desktop:pixelsize=20;5"
-font-3 = Weather Icons:size=12;1
-font-4 = BreezeSans:pixelsize=10:style=Regular Condensed;-5
-font-5 = BreezeSans:pixelsize=10:style=Regular Condensed;9
-font-6 = Material Design Icons Desktop:pixelsize=10;10
-font-7 = Material Design Icons Desktop:pixelsize=10;-10
+font-0 = "Iosevka Custom:size=13;3"
+#font-0 = "Anka/Coder Regular:size=13;3"
+font-1 = "feather:pixelsize=15;4"
+#font-1 = "JetBrains Mono Nerd Font:size=13:style=Bold;3"
+font-2 = "IcoMoon\-Free:pixelsize=12;4"
+font-3 = "JetBrains Mono Nerd Font:style=Bold:size=19;4"
+#font-4 = "feather:pixelsize=15;4"
+font-4 = "JetBrains Mono Nerd Font:size=13:style=Bold;3"
 
-modules-left = bspwm
-modules-center = 
-modules-right =  wlan sep battery volume sep date powermenu
 
-tray-detached = true
-tray-offset-x = 0
-tray-offset-y = 0
+modules-left = round-left bspwm round-right
+modules-right = round-left5 update round-left4 battery round-left3 volume round-left2 time round-left1 
+
 tray-position = right
-tray-padding = 2
-tray-maxsize = 20
-tray-scale = 1.0
-tray-background = ${colors.background}
+tray-background = ${colors.shade-1}
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
 
-[bar/bottom]
-width = 100%
-height = 26
-fixed-center = true
-bottom = true
+###########
+# Modules #
+###########
 
-background = ${colors.background2}
-foreground = ${colors.foreground}
+[module/round-left]
+type = custom/text
+content = 
+content-background = ${colors.background}
+content-foreground = ${colors.background-alt}
+content-font = 4
 
-; wm-restack = bspwm
-; override-redirect = true
+[module/round-left1]
+type = custom/text
+content = 
+content-background = ${colors.shade-2}
+content-foreground = ${colors.shade-1}
+content-font = 4
 
-enable-ipc = true
+[module/round-left2]
+type = custom/text
+content = 
+content-background = ${colors.shade-3}
+content-foreground = ${colors.shade-2}
+content-font = 4
 
-border-size = 0
-border-color = #00000000
+[module/round-left3]
+type = custom/text
+content = 
+content-background = ${colors.shade-4}
+content-foreground = ${colors.shade-3}
+content-font = 4
 
-padding-left = 1
-padding-right = 1
+[module/round-left4]
+type = custom/text
+content = 
+content-background = ${colors.shade-5}
+content-foreground = ${colors.shade-4}
+content-font = 4
 
-module-margin-left = 1
-module-margin-right = 1
+[module/round-left5]
+type = custom/text
+content = 
+content-background = ${colors.background}
+content-foreground = ${colors.shade-5}
+content-font = 4
 
-;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "BreezeSans:size=10:style=Bold Condensed;3"
-font-1 = "Font Awesome 5 Free Solid:pixelsize=10;3"
-font-2 = "Material Design Icons Desktop:pixelsize=18;5"
-font-3 = Weather Icons:size=12;1
-font-4 = BreezeSans:pixelsize=10:style=Regular Condensed;-5
-font-5 = BreezeSans:pixelsize=10:style=Regular Condensed;9
-font-6 = Material Design Icons Desktop:pixelsize=10;10
-font-7 = Material Design Icons Desktop:pixelsize=10;-10
-
-modules-center = 
-modules-left = spotify spotify-prev spotify-play-pause spotify-next
-modules-right = pacman-updates cpu memory
-
-tray-detached = false
-tray-offset-x = 0
-tray-offset-y = 0
-tray-position = right
-tray-padding = 2
-tray-maxsize = 20
-tray-scale = 1.0
-tray-background = ${colors.background}
+[module/round-right]
+type = custom/text
+content = 
+content-foreground = ${colors.background-alt}
+content-font = 4
 
 [module/bspwm]
 type = internal/bspwm
@@ -131,212 +129,112 @@ enable-scroll = true
 reverse-scroll = false
 pin-workspaces = true
 
-ws-icon-0 = 1;󰞷
-ws-icon-1 = 2;󰖟
-ws-icon-2 = 3;󰇰
-ws-icon-3 = 4;󰭹
-ws-icon-4 = 5;󰊗
-ws-icon-5 = 6;󰝚
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
 ws-icon-default = " "
-
 
 format = <label-state> <label-mode>
 
-label-focused = %icon%
-label-focused-background = ${colors.background-alt1}
-label-focused-underline= ${colors.background-alt}
-label-focused-padding = 4
+label-focused = 
+label-focused-padding = 1
 label-focused-foreground = ${colors.foreground-alt}
+label-focused-background = ${colors.background-alt}
+label-focused-font = 3 
 
-label-occupied = %icon%
-label-occupied-padding = 4
-label-occupied-background = ${colors.background}
-label-occupied-underline= ${colors.background}
-label-occupied-foreground = ${colors.foreground-alt}
+label-occupied = 
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.foreground-alt-1}
+label-occupied-background = ${colors.background-alt}
+label-occupied-font = 5
 
-label-urgent = %icon%
-label-urgent-padding = 4
+label-urgent = 
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.foreground-alt-1}
+label-urgent-background = ${colors.background-alt}
+label-urgent-font = 5
 
-label-empty = %icon%
-label-empty-padding = 4
-label-empty-foreground = ${colors.foreground-alt1}
-;label-separator = |
+label-empty = 
+label-empty-padding = 1
+label-empty-foreground = ${xrdb:color8}
+label-empty-background = ${colors.background-alt}
+label-empty-font = 5
 
 [module/battery]
-;https://github.com/jaagr/polybar/wiki/Module:-battery
 type = internal/battery
 full-at = 99
 time-format = %H:%M
 battery = BAT0
 adapter = AC
+label-font = 5
 
-format-charging = <animation-charging>%{T2}<label-charging>%{T-} 
+format-charging-background = ${colors.shade-4}
+format-charging-foreground = #BD99FF 
+format-charging = <label-charging>
+label-charging = "%{T5}%{T-} %percentage%% "
 
-format-discharging = <ramp-capacity>%{T2}<label-discharging>%{T-}
+format-discharging = <label-discharging>
+label-discharging = "%{T5} %{T-}%percentage%% " 
+format-discharging-background = ${colors.shade-4}
+format-discharging-foreground = #BD99FF
 
-format-full = 󰂄%{T2}100%%{T-}
-format-full-foreground = ${colors.foreground}
-
-animation-charging-0 = 󱊤
-animation-charging-1 = 󱊥
-animation-charging-2 = 󱊦
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 900
-
-ramp-capacity-0 = %{F#FF004B}󰂃%{F-}
-ramp-capacity-1 = %{F#FF5300}󰁺%{F-}
-ramp-capacity-2 = %{F#FF8000}󰁻%{F-}
-ramp-capacity-3 = %{F#FFD200}󰁼%{F-}
-ramp-capacity-4 = 󰁽
-ramp-capacity-5 = 󰁾
-ramp-capacity-6 = 󰁿
-ramp-capacity-7 = 󰂀
-ramp-capacity-8 = 󰂁
-ramp-capacity-9 = 󰂂
-ramp-capacity-10 = 󰁹 
-ramp-capacity-foreground = ${colors.foreground}
-ramp-capacity-framerate = 750
+format-full = "%{T5} %{T-}100% " 
+format-full-background = ${colors.shade-4}
+format-full-foreground = #BD99FF
 
 ################################################################################
-
-;[module/cpu]
-;https://github.com/jaagr/polybar/wiki/Module:-cpu
-;type = internal/cpu
-;interval = 1
-;format-prefix = "󰍛"
-
-;format = <label>
-
-;label = CPU %percentage:%%
-
-[module/cpu]
-type = custom/script
-exec = ~/.config/polybar/scripts/cpu.sh 2> /dev/null 
-format-prefix = "󰍛"
-format-foreground = ${colors.foreground}
-
-interval = 1
-tail = true
-
-################################################################################
-
-[module/date]
-;https://github.com/jaagr/polybar/wiki/Module:-date
+[module/time]
 type = internal/date
-interval = 1.0
-date = "󰸗 %a %d %b, %H:%M"
-label = "%date%"
-
-################################################################################
-
-[module/memory]
-;https://github.com/jaagr/polybar/wiki/Module:-memory
-type = internal/memory
-interval = 1
-label = %gb_used%
-
+interval = 5
+time = "%H:%M"
 format = <label>
-format-prefix = " "
+format-background = ${colors.shade-2}
+format-foreground = #87DFEB
+format-prefix = " "
+format-padding = 1
+label = %time%
+#format-overline = ${colors.shade-2}
+#format-underline = ${colors.shade-2}
 
 ################################################################################
-
-[module/openweathermap-simple]
-type = custom/script
-exec = ~/.config/polybar/scripts/openweathermap-simple.sh
-interval = 600
-label-font = 4
-
-###############################################################################
-
-[module/pacman-updates]
-type = custom/script
-exec = checkupdates | wc -l
-interval = 1000
-label = %output%
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format-prefix = " 󰏗 "
-
-################################################################################
-
-[module/powermenu]
-type = custom/script
-exec = echo "󰐥"
-format = <label>
-click-left = $HOME/.config/rofi/bin/powermenu.sh
-
-
-################################################################################
-
 [module/sep]
 type = custom/text
-content = |
+content = " "
 content-background = ${colors.background}
 content-foreground = ${colors.foreground}
 
 ###############################################################################
 
-[module/spotify]
-type = custom/script
-tail = true
-format-prefix = "󰓇 "
-format = <label>
-exec = ~/.config/polybar/scripts/spotify.sh
-format-foreground = ${colors.foreground-alt}
-
-[module/spotify-prev]
-type = custom/script
-exec = echo "󰒫"
-format = <label>
-click-left = playerctl previous spotify
-format-foreground = ${colors.foreground-alt}
-
-[module/spotify-play-pause]
-type = custom/ipc
-hook-0 = echo "󰏤"
-hook-1 = echo "󰐊"
-initial = 0
-click-left = playerctl play-pause spotify
-format-foreground = ${colors.foreground-alt}
-
-[module/spotify-next]
-type = custom/script
-exec = echo "󰒬"
-format = <label>
-click-left = playerctl next spotify
-format-foreground = ${colors.foreground-alt}
-
-###################################################################################
-
 [module/volume]
-;https://github.com/jaagr/polybar/wiki/Module:-volume
 type = internal/pulseaudio
 interval = 5
 
-format-volume = <label-volume>
-label-volume = "󰖀%percentage%%"
-label-volume-foreground = ${colors.foreground}
+format-volume = <ramp-volume> <label-volume>
+label-volume = "%percentage%% "
+format-volume-foreground = #92B6F4
+format-volume-background = ${colors.shade-3}
 
-label-muted =󰸈 
-label-muted-foreground = #607290
+label-muted = 
+label-muted-background = ${colors.shade-3}
+label-muted-foreground = #56687E
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 
 ################################################################################
 
-[module/wlan]
-type = internal/network
-interface = wlp0s20f3
-interval = 3.0
+[module/update]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates.sh
+format-background = ${colors.shade-5}
+format-foreground = #F1FF52
+format-prefix = ""
+interval = 5
+tail = true
 
-format-connected = %{A1:$HOME/.config/rofi/bin/networkmenu.sh:}<ramp-signal> <label-connected>%{A}
-label-connected = 
-
-format-disconnected = %{A1:$HOME/.config/rofi/bin/networkmenu.sh:}<label-disconnected>%{A}
-label-disconnected = 󰤭
-label-disconnected-foreground = #6c809e
-
-ramp-signal-0 = %{F#ff004b}󰤫%{F-}
-ramp-signal-1 = %{F#ffd200}󰤟%{F-}
-ramp-signal-2 = 󰤢
-ramp-signal-3 = 󰤥
-ramp-signal-4 = 󰤨
-ramp-signal-foreground = ${colors.foreground}
+################################################################################

@@ -132,6 +132,9 @@ Print + shift
 Print
 	flameshot full -c -p ~/Pictures
 
+super + alt + Escape
+  i3lock
+
 #################
 # Function keys #
 #################
@@ -144,4 +147,9 @@ Print
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# Brightness
 
+XF86MonBrightnessDown
+	xbacklight -dec 5
+XF86MonBrightnessUp
+	xbacklight -inc 5

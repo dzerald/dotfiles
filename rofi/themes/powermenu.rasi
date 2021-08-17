@@ -1,75 +1,50 @@
-/*
- *
- * Author  : Aditya Shakya
- * Mail    : adi1090x@gmail.com
- * Github  : @adi1090x
- * Twitter : @adi1090x
- *
- */
-
 configuration {
-	font:							"FantasqueSansMono Nerd Font 12";
-    show-icons:                     false;
-	icon-theme: 					"Papirus";
-    drun-display-format:            "{name}";
-    disable-history:                false;
-    fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+  drun-display-format:            "{name}";
+  show-icons: false;
+  disable-history:                false;
+  fullscreen:                     false;
+  hide-scrollbar: 		  true;
+  sidebar-mode: 	          false;
 }
 
 * {
-    background:                     #25344Bff;
-    background-alt:                 #2A3950ff;
-    foreground:                     #FEFFF1ff;
-    border:               			#A162F7ff;
-    border-alt:               		#45E3FFff;
-    selected:               		#6F88FE1a;
-    urgent:                         #DA4453FF;
+  background:                     #00000000;
+  foreground:                     #F8F8F2;
+  selected:                       #BD99FF;
 }
 
 window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border-radius:                  12px;
-    height:                         26.5%;
-    width:                          50%;
-    location:                       center;
+    height:                         100%;
+    width:                          100%;
+    padding: 27.7% 20.8%;
+    location: center;
     x-offset:                       0;
     y-offset:                       0;
 }
 
 prompt {
-    enabled: 						true;
-    padding:                        0.5% 0.5% 0.5% 0%;
-	background-color: 				@background-alt;
-	text-color: 					@foreground;
-}
+    enabled: 						false;
+  }
 
 textbox-prompt-colon {
-	expand: 						false;
-	str: 							"System |";
-	background-color: 				@background-alt;
-	text-color: 					@foreground;
-    padding:                        0.5% 0.5% 0.5% 0%;
+    expand: 			    false;
+    background-color: 		    @background;
+    text-color: 		    @foreground;
+    padding:                        0%;
 }
 
 inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
-    background-color:               @background-alt;
-    text-color:                     @foreground;
-    expand:                         false;
-    border:                  		0.2% 0.2% 0.2% 0.2%;
-    border-radius:                  12px;
-    border-color:                  	@border;
-    margin:                         0% 21.3% 0% 0%;
-    padding:                        0.5%;
-    position:                       center;
+    children: 			    [ textbox-prompt-colon, prompt ];
+    background-color:               transparent;
+    margin:                         0% 0% 0% 0%;
+    position: center;
 }
 
 listview {
-    background-color:               @background;
+    background-color:               transparent;
     margin:                         0% 0% 0% 0%;
     spacing:                        2%;
     cycle:                          true;
@@ -85,48 +60,27 @@ mainbox {
 }
 
 element {
-    background-color:               @background-alt;
+    /*background-color:               @background;*/
+    background-color: #3D4C5F;
     text-color:                     @foreground;
     orientation:                    horizontal;
     border-radius:                  25px;
 }
 
 element-text {
-	font:							"feather 32";
+    font:			    "feather bold 40";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
     margin:                         4.7% 2.7% 7.5% 2.7%;
 }
 
-element normal.urgent,
-element alternate.urgent {
-    background-color:               @urgent;
-    text-color:                     @foreground;
-    border-radius:                  0.2%;
-}
-
-element normal.active,
-element alternate.active {
-    background-color:               @background-alt;
-    text-color:                     @foreground;
-}
-
 element selected {
-    background-color:               @selected;
-    text-color:                     @foreground;
-    border:                  		0.2% 0.2% 0.2% 0.2%;
-    border-radius:                  25px;
-    border-color:                  	@border;
-}
-
-element selected.urgent {
-    background-color:               @urgent;
-    text-color:                     @foreground;
-}
-
-element selected.active {
-    background-color:               @background-alt;
-    color:                          @foreground;
+    background-color:               @323F4E;
+    /* text-color:                     @foreground;*/
+    text-color: @selected;
+    border:                  		0.4%;
+    border-color: @selected;
+    border-radius:                  15px;
 }
 

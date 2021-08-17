@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 
-## Author  : Aditya Shakya
-## Mail    : adi1090x@gmail.com
-## Github  : @adi1090x
-## Twitter : @adi1090x
-
-uptime=$(uptime -p | sed -e 's/up //g')
-
 rofi_command="rofi -theme $HOME/.config/rofi/themes/powermenu.rasi"
 
 # Options
@@ -16,10 +9,9 @@ lock=""
 suspend=""
 logout=""
 
-# Variable passed to rofi
 options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
-chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
+chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
 			systemctl poweroff

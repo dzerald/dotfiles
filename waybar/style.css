@@ -1,57 +1,64 @@
 * {
-	margin: 2px;
-	font-family: "Breeze Sans", "Font Awesome 5 Free";
-  font-weight: 600;
+  margin: 1px;
+  /* font-family: "Roboto Mono Nerd Font Complete", "Material Design Icons Desktop";*/
+  font-family: "Roboto Mono", sans-serif;  
+  min-height: 0;
 }
 
 window#waybar {
   /* animation-name: fadeIn; */
   /* animation-duration: 1s; */
-	background-color: #0c232f;
+	/* background-color: #011330; */
+	/* background-color: transparent; */
+  /* background-color: #1a222e */
+  background-color: #363253;
 }
+
 #workspaces {
-	background-color: #193046;
-	padding: 0px;
-  font-size: 18px;
-	border-radius: 10px;
+  margin: 4px 6px;
+  font-size: 16px;
 }
 #workspaces button {
-	border-radius: 8px;
-  margin: 0px;
-	padding: 2px 10px;
-	color: #347F8C;
+  padding: 0px 0px;
+  color: #F8F8F2;
+  border-bottom: solid 2px #707791;
+  border-radius: 0px;
 }
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-@keyframes blink {
-	to {
-		background-color: black;
-	}
-}
+/* @keyframes fadeIn { */
+/*   from {opacity: 0;} */
+/*   to {opacity: 1;} */
+/* } */
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-	background-color: #5E81AC;
-	box-shadow: inherit;
-	color: #5E81AC;
-}
-#workspaces button.focused {
-  color: #23A7E6;
-}
-#pulseaudio.muted {
-	color: #607290;
+	/* box-shadow: inherit; */
+	/* text-shadow: inherit; */
+  color: black;
 }
 
-#cpu, #clock, #battery, #memory, #backlight, #network, #pulseaudio, #custom-powermenu, #custom-updates, #custom-vpn, #temperature, #tray {
-	background-color: #193046;
-	padding: 0px 14px;
-	margin: 2px 4px;
-  color: #FC9299;
-  border-radius: 10px;
+#workspaces button.focused {
+  border-bottom: solid 2px #F8F8F2;
 }
-#custom-powermenu {
-  font-size: 20px;
-  color: #DB695B;
+
+#pulseaudio.muted {
+  color: #607290;
+}
+
+#battery, #clock, #pulseaudio, #custom-updates {
+  padding: 0px 2px;
+  color: #F8F8F2;
+  /* border-radius: 10px; */
+  font-size: 16px;
+}
+
+#clock {
+  margin-top: 3px;
+}
+
+#battery {
+  margin-top: 2px;
+}
+
+#tray {
+  padding: 3px 5px;
 }

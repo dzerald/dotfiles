@@ -1,13 +1,16 @@
 {
-    "height": 24,
+    "width": 600,
+    "height": 30,
+    "position": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["network", "custom/vpn", "battery", "pulseaudio", "custom/updates", "tray", "clock"],
+    "modules-right": ["custom/updates", "pulseaudio", "tray", "battery", "clock"],
     
     // Modules configuration
     
     "sway/workspaces": {
       "disable-scroll": false,
+      "enable-bar-scroll": true,
       "all-outputs": true,
       "format": "{icon}",
       "persistent_workspaces": {
@@ -16,70 +19,62 @@
         "3": [],
         "4": [],
         "5": [],
-        "6": [],
-        "7": []
+        "6": []
       },
       "format-icons": {
-      "1": "󰅬",
-      "2": "󰖟",
-      "3": "󰇮",
-      "4": "󰭹",
-      "5": "󰊗",
-      "6": "󰝚",
-      "7": "󰆼",
+      /* "1": "ﲵ",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "阮",
+      "7": "",
+      "1": "Dev",
+      "2": "Web",
+      "3": "Mail",
+      "4": "Chat",
+      "5": "Game",
+      "6": "Music",
+      "7": "", */
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+
       "focused": "",
       "urgent": "",
       "default": ""
        },
-      /* "icon-size": 15 */
      },
     "tray": {
-        /* "icon-size": 21, */
-        "spacing": 10
+        "spacing": 5,
+        "icon-size": 14
     },
     "clock": {
-        "format": "󰅐{:%H:%M}",
+        "format": "{:%a %d %b, %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-        "format": "󰍛{usage}%",
-        "interval": 2,
-        "tooltip": false
-    },
-    "memory": {
-        "format": " {}%"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [""]
-    },
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "󰃚"]
     },
     "battery": {
         "states": {
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon}{capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": "{capacity}%",
+        "format": "{icon}",
+        "format-charging": "",
+        "format-plugged": "",
         "format-alt": "{icon}{time}",
+        "tooltip-format": "{capacity}%",
         "format-icons": ["󰂃","󰁺","󰁻","󰁼","󰁽","󰁾", "󰁿", "󰂀", "󰂁", "󰂂 ", "󰁹 "]
-    },
-    "network": {
-        "format-wifi": "󰖩 {essid}",
-        "format-disconnected": "󰖪",
-        "format-alt": "{ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "󰸈  {format_source}",
-        "format-source": "{volume}% ",
+        "format": "{icon}",
+        "format-muted": "󰸈 ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -88,31 +83,12 @@
             "portable": "",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-    },
-    "custom/powermenu": {
-        "format": "󰐥",
-        "on-click": ""
+        "on-click": "exec pactl set-sink-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip-format": "{volume}%"
     },
     "custom/updates": {
-        "exec": "checkupdates | wc -l",
-        "format": "󰏗 {}",
-        "on-click": "test",
-        "interval": 5
-    },
-    "custom/vpn": {
-        "exec": "$HOME/.config/waybar/scripts/vpn.sh",
+        "exec": "$HOME/.config/waybar/scripts/updates.sh",
         "format": "{}",
-        "interval": 5
+        "interval": 3600
     }
-}
+}    

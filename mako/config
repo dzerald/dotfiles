@@ -1,7 +1,7 @@
 anchor=top-right
-font="Breeze Sans"
-background-color=#0c232f
-text-color=#ECEFF4
+font="Roboto Mono"
+background-color=#363253
+text-color=#F8F8F2
 width=380
 margin=10
 padding=10
